@@ -531,4 +531,12 @@ Public Class Frmmain
         SetAsGooseConfigStru()
         IsInit = False
     End Sub
+
+    Private Sub LLbl_Issue_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LLbl_Issue.LinkClicked
+        System.Diagnostics.Process.Start("https://github.com/ruxia-TJY/GooseDesktopEdit/issues")
+    End Sub
+
+    Private Sub LLbl_ProjURL_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LLbl_ProjURL.LinkClicked
+        System.Diagnostics.Process.Start("https://github.com/ruxia-TJY/GooseDesktopEdit")
+    End Sub
 End Class

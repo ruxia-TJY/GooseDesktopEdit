@@ -68,8 +68,9 @@ Partial Class Frmmain
         Me.NUD_MaxWanderingTimeSeconds = New System.Windows.Forms.NumericUpDown()
         Me.NUD_FirstWanderTimeSeconds = New System.Windows.Forms.NumericUpDown()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.LLbl_Issue = New System.Windows.Forms.LinkLabel()
+        Me.LLbl_ProjURL = New System.Windows.Forms.LinkLabel()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -531,37 +532,49 @@ Partial Class Frmmain
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("宋体", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label9.Location = New System.Drawing.Point(331, 115)
+        Me.Label9.Location = New System.Drawing.Point(315, 113)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(159, 14)
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "Build By ruxia-TJY."
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(331, 135)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(137, 12)
-        Me.Label10.TabIndex = 19
-        Me.Label10.Text = "有Bug联系QQ:2378736060"
-        '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(331, 155)
+        Me.Label11.Location = New System.Drawing.Point(312, 155)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(149, 24)
         Me.Label11.TabIndex = 20
         Me.Label11.Text = "基于.Net FrameWork 4.7.2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "搜索基于Everything"
+        '
+        'LLbl_Issue
+        '
+        Me.LLbl_Issue.AutoSize = True
+        Me.LLbl_Issue.Location = New System.Drawing.Point(315, 134)
+        Me.LLbl_Issue.Name = "LLbl_Issue"
+        Me.LLbl_Issue.Size = New System.Drawing.Size(59, 12)
+        Me.LLbl_Issue.TabIndex = 21
+        Me.LLbl_Issue.TabStop = True
+        Me.LLbl_Issue.Text = "Bug或意见"
+        '
+        'LLbl_ProjURL
+        '
+        Me.LLbl_ProjURL.AutoSize = True
+        Me.LLbl_ProjURL.Location = New System.Drawing.Point(376, 134)
+        Me.LLbl_ProjURL.Name = "LLbl_ProjURL"
+        Me.LLbl_ProjURL.Size = New System.Drawing.Size(65, 12)
+        Me.LLbl_ProjURL.TabIndex = 22
+        Me.LLbl_ProjURL.TabStop = True
+        Me.LLbl_ProjURL.Text = "star本项目"
         '
         'Frmmain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(499, 391)
+        Me.Controls.Add(Me.LLbl_ProjURL)
+        Me.Controls.Add(Me.LLbl_Issue)
         Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.NUD_FirstWanderTimeSeconds)
         Me.Controls.Add(Me.NUD_MaxWanderingTimeSeconds)
@@ -655,6 +668,7 @@ Partial Class Frmmain
     Friend WithEvents Label5 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
+    Friend WithEvents LLbl_Issue As LinkLabel
+    Friend WithEvents LLbl_ProjURL As LinkLabel
 End Class
