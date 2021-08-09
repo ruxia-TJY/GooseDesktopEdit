@@ -44,13 +44,14 @@ Module ModGlobal
     ''' <summary>
     ''' 设置本程序路径
     ''' </summary>
-    Public Sub SetMyExeStru(ByVal ExeS As MyExeStru)
-        ExeS.DirPath = My.Application.Info.DirectoryPath.ToString
-        If Microsoft.VisualBasic.Right(ExeS.DirPath, 1) <> "\" Then
-            ExeS.DirPath += "\"
+    Public Sub SetMyExeStru()
+        MyExe.DirPath = My.Application.Info.DirectoryPath.ToString
+        If Microsoft.VisualBasic.Right(MyExe.DirPath, 1) <> "\" Then
+            MyExe.DirPath += "\"
         End If
 
-        ExeS.ConfigPath = ExeS.DirPath + "set.config"
+        MyExe.ConfigPath = MyExe.DirPath + "set.config"
+
     End Sub
 
     Public Function SetGooseStru()
@@ -115,7 +116,12 @@ Module ModGlobal
             If Microsoft.VisualBasic.Right(Goose.DirPath, 1) <> "\" Then
                 Goose.DirPath += "\"
             End If
+            Dim SW As New StreamWriter(MyExe.ConfigPath)
+            SW.Write(Goose.DirPath)
+            SW.Close()
+
             SetGooseStru()
+            Frmmain.Lbl_URL.Text = Goose.ExePath
             Return True
         End If
         Return False

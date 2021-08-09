@@ -79,7 +79,7 @@ Public Class Frmmain
 
     Private Sub Frmmain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' 设置本程序信息结构体
-        SetMyExeStru(MyExe)
+        SetMyExeStru()
 
         ' 如果存在配置文件
         If File.Exists(MyExe.ConfigPath) Then
@@ -108,6 +108,9 @@ Public Class Frmmain
         Lbl_URL.Text = Goose.ExePath
 
         If Goose.DirPath <> "" Then
+            ' 根据Goose路径设置结构体
+            SetGooseStru()
+            Lbl_URL.Text = Goose.ExePath
             ' 读取Goose配置文件，复制到Goose配置信息结构体
             ReadGooseConfigIni()
             ' 根据Goose配置信息结构体配置本程序控件初始值
@@ -131,8 +134,6 @@ Public Class Frmmain
 
         IsInit = False
     End Sub
-
-
 
 
     Private Sub Lst_Img_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Lst_Img.SelectedIndexChanged
