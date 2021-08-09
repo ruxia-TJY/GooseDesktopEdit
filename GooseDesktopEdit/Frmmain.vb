@@ -1,11 +1,18 @@
-﻿Imports System.Drawing.Drawing2D
+﻿'GooseDesktop是一个非常好玩的桌面宠物软件,同时他是可配置的
+
+' 在代码注释中，GooseDesktop省称Goose
+'Imports System.Drawing.Drawing2D
 Imports System.IO
 
 Public Class Frmmain
+
     Dim IsInit As Boolean = True
     Dim TxtChanged As Boolean = False
     Dim LstIndexChanged As Boolean = False
 
+    ''' <summary>
+    ''' 读取Goose音频模块文件列表
+    ''' </summary>
     Public Sub ReadGooseFileToLst()
         Dim FI As FileInfo
         Dim DI As DirectoryInfo
@@ -30,6 +37,9 @@ Public Class Frmmain
 
     End Sub
 
+    ''' <summary>
+    ''' 根据Goose结构体信息设置空间初始值
+    ''' </summary>
     Private Sub SetAsGooseConfigStru()
         If GooseConfig.EnableMods = "True" Then
             Chk_Mod.Checked = True
@@ -69,7 +79,7 @@ Public Class Frmmain
 
     Private Sub Frmmain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' 设置本程序信息结构体
-        SetMyExeStru()
+        SetMyExeStru(MyExe)
 
         ' 如果存在配置文件
         If File.Exists(MyExe.ConfigPath) Then
@@ -81,29 +91,36 @@ Public Class Frmmain
                 Goose.DirPath += "\"
             End If
 
-            ' 配置文件的Goose路径不存在
+            ' 判断配置文件中的路径存在与否
             If Directory.Exists(Goose.DirPath) = False Then
-                SearchGooseExePath()
+                If SetGooseExePath() = False Then
+                    MsgBox("无法找到GooseDesktop")
+                    Application.Exit()
+                End If
             End If
         Else
-            SearchGooseExePath()
-        End If
-        Lbl_URL.Text = Goose.DirPath
-
-        ' 根据Goose路径，设置Goose信息结构体
-        SetGooseStru()
-        ' 读取Goose配置文件，复制到Goose配置信息结构体
-        ReadGooseConfigIni()
-        ' 根据Goose配置信息结构体配置本程序控件初始值
-        SetAsGooseConfigStru()
-        ' 读取Goose下可配置的的图片Mod音乐文本文件
-        ReadGooseFileToLst()
-
-        If File.Exists(Goose.SoundDirPath + "Music.mp3") Then
-            Chk_Music.Checked = True
+            If SetGooseExePath() = False Then
+                MsgBox("无法找到GooseDesktop")
+                Application.Exit()
+            End If
         End If
 
-        ' 初始化控件特效
+        Lbl_URL.Text = Goose.ExePath
+
+        If Goose.DirPath <> "" Then
+            ' 读取Goose配置文件，复制到Goose配置信息结构体
+            ReadGooseConfigIni()
+            ' 根据Goose配置信息结构体配置本程序控件初始值
+            SetAsGooseConfigStru()
+            '' 读取Goose下可配置的的图片Mod音乐文本文件
+            ReadGooseFileToLst()
+
+            If File.Exists(Goose.SoundDirPath + "music.mp3") Then
+                Chk_Music.Checked = True
+            End If
+        End If
+
+        ' 初始化控件
         Pic_Img_Add.Image = Image.FromFile("Res\Add.png")
         Pic_Img_Delete.Image = Image.FromFile("Res\Delete.png")
         Pic_Mod_Add.Image = Image.FromFile("Res\Add.png")
@@ -114,6 +131,8 @@ Public Class Frmmain
 
         IsInit = False
     End Sub
+
+
 
 
     Private Sub Lst_Img_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Lst_Img.SelectedIndexChanged
@@ -211,19 +230,6 @@ Public Class Frmmain
         End If
     End Sub
 
-    Private Sub Btn_SetGoosePath_Click(sender As Object, e As EventArgs) Handles Btn_SetGoosePath.Click
-        Dim OFD As New OpenFileDialog
-        OFD.Filter = "GooseDesktop.exe|GooseDesktop.exe"
-        OFD.Title = "选择主程序GooseDesktop.exe"
-        If OFD.ShowDialog = DialogResult.OK Then
-            MsgBox("选择的路径是：" + OFD.FileName,, "提示")
-            Goose.DirPath = Path.GetDirectoryName(OFD.FileName)
-            If Microsoft.VisualBasic.Right(Goose.DirPath, 1) <> "\" Then
-                Goose.DirPath += "\"
-            End If
-            SetGooseStru()
-        End If
-    End Sub
 
 
     Private Sub Pic_Img_Add_MouseLeave(sender As Object, e As EventArgs) Handles Pic_Img_Add.MouseLeave
@@ -532,11 +538,15 @@ Public Class Frmmain
         IsInit = False
     End Sub
 
-    Private Sub LLbl_Issue_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LLbl_Issue.LinkClicked
-        System.Diagnostics.Process.Start("https://github.com/ruxia-TJY/GooseDesktopEdit/issues")
+    Private Sub LLbl_GooseSite_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LLbl_GooseSite.LinkClicked
+        System.Diagnostics.Process.Start("https://samperson.itch.io/desktop-goose")
     End Sub
 
-    Private Sub LLbl_ProjURL_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LLbl_ProjURL.LinkClicked
+    Private Sub LLbl_ProjSite_LinkClicked_1(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LLbl_ProjSite.LinkClicked
         System.Diagnostics.Process.Start("https://github.com/ruxia-TJY/GooseDesktopEdit")
+    End Sub
+
+    Private Sub Btn_SetGoosePath_Click(sender As Object, e As EventArgs) Handles Btn_SetGoosePath.Click
+        SetGooseExePath()
     End Sub
 End Class

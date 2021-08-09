@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("为GooseDesktop开发配置软件")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("GooseDesktopEdit")>
-<Assembly: AssemblyCopyright("Copyright ©  2020 ruxia-TJY")>
+<Assembly: AssemblyCopyright("Copyright ©  2021 ruxia-TJY")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>

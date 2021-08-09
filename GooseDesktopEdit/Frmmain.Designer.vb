@@ -53,7 +53,6 @@ Partial Class Frmmain
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Chk_Music = New System.Windows.Forms.CheckBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Pic_Txt_Save = New System.Windows.Forms.PictureBox()
         Me.Pic_Txt_Delete = New System.Windows.Forms.PictureBox()
         Me.Pic_Txt_Add = New System.Windows.Forms.PictureBox()
@@ -68,9 +67,8 @@ Partial Class Frmmain
         Me.NUD_MaxWanderingTimeSeconds = New System.Windows.Forms.NumericUpDown()
         Me.NUD_FirstWanderTimeSeconds = New System.Windows.Forms.NumericUpDown()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.LLbl_Issue = New System.Windows.Forms.LinkLabel()
-        Me.LLbl_ProjURL = New System.Windows.Forms.LinkLabel()
+        Me.LLbl_GooseSite = New System.Windows.Forms.LinkLabel()
+        Me.LLbl_ProjSite = New System.Windows.Forms.LinkLabel()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -93,16 +91,16 @@ Partial Class Frmmain
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Location = New System.Drawing.Point(4, 8)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(101, 12)
+        Me.Label1.Size = New System.Drawing.Size(113, 12)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "检测到的路径为："
+        Me.Label1.Text = "GooseDesktop路径："
         '
         'Lbl_URL
         '
         Me.Lbl_URL.AutoSize = True
-        Me.Lbl_URL.Location = New System.Drawing.Point(106, 9)
+        Me.Lbl_URL.Location = New System.Drawing.Point(117, 9)
         Me.Lbl_URL.Name = "Lbl_URL"
         Me.Lbl_URL.Size = New System.Drawing.Size(0, 12)
         Me.Lbl_URL.TabIndex = 1
@@ -232,6 +230,7 @@ Partial Class Frmmain
         '
         'Btn_RunGoose
         '
+        Me.Btn_RunGoose.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Btn_RunGoose.Location = New System.Drawing.Point(410, 30)
         Me.Btn_RunGoose.Name = "Btn_RunGoose"
         Me.Btn_RunGoose.Size = New System.Drawing.Size(90, 23)
@@ -241,6 +240,7 @@ Partial Class Frmmain
         '
         'Btn_CloseGoose
         '
+        Me.Btn_CloseGoose.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Btn_CloseGoose.Location = New System.Drawing.Point(410, 57)
         Me.Btn_CloseGoose.Name = "Btn_CloseGoose"
         Me.Btn_CloseGoose.Size = New System.Drawing.Size(90, 23)
@@ -386,7 +386,6 @@ Partial Class Frmmain
         '
         'TabPage4
         '
-        Me.TabPage4.Controls.Add(Me.Label8)
         Me.TabPage4.Controls.Add(Me.Pic_Txt_Save)
         Me.TabPage4.Controls.Add(Me.Pic_Txt_Delete)
         Me.TabPage4.Controls.Add(Me.Pic_Txt_Add)
@@ -398,15 +397,6 @@ Partial Class Frmmain
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "文本"
         Me.TabPage4.UseVisualStyleBackColor = True
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(58, 178)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(77, 12)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "点击右边保存"
         '
         'Pic_Txt_Save
         '
@@ -458,15 +448,17 @@ Partial Class Frmmain
         '
         'Btn_SetGoosePath
         '
+        Me.Btn_SetGoosePath.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Btn_SetGoosePath.Location = New System.Drawing.Point(410, 3)
         Me.Btn_SetGoosePath.Name = "Btn_SetGoosePath"
         Me.Btn_SetGoosePath.Size = New System.Drawing.Size(90, 23)
         Me.Btn_SetGoosePath.TabIndex = 10
-        Me.Btn_SetGoosePath.Text = "手动配置路径"
+        Me.Btn_SetGoosePath.Text = "配置路径"
         Me.Btn_SetGoosePath.UseVisualStyleBackColor = True
         '
         'Btn_InitGooseSetIni
         '
+        Me.Btn_InitGooseSetIni.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Btn_InitGooseSetIni.Location = New System.Drawing.Point(410, 84)
         Me.Btn_InitGooseSetIni.Name = "Btn_InitGooseSetIni"
         Me.Btn_InitGooseSetIni.Size = New System.Drawing.Size(90, 23)
@@ -538,43 +530,33 @@ Partial Class Frmmain
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "Build By ruxia-TJY."
         '
-        'Label11
+        'LLbl_GooseSite
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(312, 155)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(149, 24)
-        Me.Label11.TabIndex = 20
-        Me.Label11.Text = "基于.Net FrameWork 4.7.2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "搜索基于Everything"
+        Me.LLbl_GooseSite.AutoSize = True
+        Me.LLbl_GooseSite.Location = New System.Drawing.Point(315, 134)
+        Me.LLbl_GooseSite.Name = "LLbl_GooseSite"
+        Me.LLbl_GooseSite.Size = New System.Drawing.Size(59, 12)
+        Me.LLbl_GooseSite.TabIndex = 21
+        Me.LLbl_GooseSite.TabStop = True
+        Me.LLbl_GooseSite.Text = "Goose官网"
         '
-        'LLbl_Issue
+        'LLbl_ProjSite
         '
-        Me.LLbl_Issue.AutoSize = True
-        Me.LLbl_Issue.Location = New System.Drawing.Point(315, 134)
-        Me.LLbl_Issue.Name = "LLbl_Issue"
-        Me.LLbl_Issue.Size = New System.Drawing.Size(59, 12)
-        Me.LLbl_Issue.TabIndex = 21
-        Me.LLbl_Issue.TabStop = True
-        Me.LLbl_Issue.Text = "Bug或意见"
-        '
-        'LLbl_ProjURL
-        '
-        Me.LLbl_ProjURL.AutoSize = True
-        Me.LLbl_ProjURL.Location = New System.Drawing.Point(376, 134)
-        Me.LLbl_ProjURL.Name = "LLbl_ProjURL"
-        Me.LLbl_ProjURL.Size = New System.Drawing.Size(65, 12)
-        Me.LLbl_ProjURL.TabIndex = 22
-        Me.LLbl_ProjURL.TabStop = True
-        Me.LLbl_ProjURL.Text = "star本项目"
+        Me.LLbl_ProjSite.AutoSize = True
+        Me.LLbl_ProjSite.Location = New System.Drawing.Point(316, 151)
+        Me.LLbl_ProjSite.Name = "LLbl_ProjSite"
+        Me.LLbl_ProjSite.Size = New System.Drawing.Size(53, 12)
+        Me.LLbl_ProjSite.TabIndex = 22
+        Me.LLbl_ProjSite.TabStop = True
+        Me.LLbl_ProjSite.Text = "软件官网"
         '
         'Frmmain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(499, 391)
-        Me.Controls.Add(Me.LLbl_ProjURL)
-        Me.Controls.Add(Me.LLbl_Issue)
-        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.LLbl_ProjSite)
+        Me.Controls.Add(Me.LLbl_GooseSite)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.NUD_FirstWanderTimeSeconds)
         Me.Controls.Add(Me.NUD_MaxWanderingTimeSeconds)
@@ -666,9 +648,7 @@ Partial Class Frmmain
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents LLbl_Issue As LinkLabel
-    Friend WithEvents LLbl_ProjURL As LinkLabel
+    Friend WithEvents LLbl_GooseSite As LinkLabel
+    Friend WithEvents LLbl_ProjSite As LinkLabel
 End Class

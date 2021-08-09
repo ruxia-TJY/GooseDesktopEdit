@@ -1,7 +1,13 @@
-﻿Imports System.IO
+﻿'读取ini文件
+Imports System.IO
 
 Module ModIni
-    Public Function GetStrFromIni(ByVal key As String)
+    ''' <summary>
+    ''' 从
+    ''' </summary>
+    ''' <param name="key"></param>
+    ''' <returns></returns>
+    Public Function GetValueFromIniByKey(ByVal key As String)
         Dim LenKey As Integer = Len(key)
         Dim SR As New StreamReader(Goose.ConfigIniPath)
         While (SR.Peek >= 0)
